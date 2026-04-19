@@ -1,6 +1,7 @@
 import { type AnyNodeId, type CeilingNode, useScene } from '@pascal-app/core'
 import { useViewer } from '@pascal-app/viewer'
 import Image from 'next/image'
+import { assetPath } from './../../../../../lib/asset-path'
 import { memo, useCallback, useEffect, useState } from 'react'
 import { useShallow } from 'zustand/react/shallow'
 import useEditor from './../../../../../store/use-editor'
@@ -85,7 +86,7 @@ export const CeilingTreeNode = memo(function CeilingTreeNode({
       expanded={expanded}
       hasChildren={children.length > 0}
       icon={
-        <Image alt="" className="object-contain" height={14} src="/icons/ceiling.png" width={14} />
+        <Image alt="" className="object-contain" height={14} src={assetPath('/icons/ceiling.png')} width={14} />
       }
       isHovered={isHovered}
       isLast={isLast}

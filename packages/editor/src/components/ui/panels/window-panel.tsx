@@ -21,6 +21,7 @@ import { PanelSection } from '../controls/panel-section'
 import { SliderControl } from '../controls/slider-control'
 import { ToggleControl } from '../controls/toggle-control'
 import { PanelWrapper } from './panel-wrapper'
+import { assetPath } from '../../../lib/asset-path'
 import { PresetsPopover } from './presets/presets-popover'
 
 export function WindowPanel() {
@@ -189,7 +190,7 @@ export function WindowPanel() {
 
   return (
     <PanelWrapper
-      icon="/icons/window.png"
+      icon={assetPath('/icons/window.png')}
       onClose={handleClose}
       title={node.name || 'Window'}
       width={320}

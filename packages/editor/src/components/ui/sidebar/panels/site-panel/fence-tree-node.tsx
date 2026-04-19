@@ -1,6 +1,7 @@
 import { type AnyNodeId, type FenceNode, useScene } from '@pascal-app/core'
 import { useViewer } from '@pascal-app/viewer'
 import Image from 'next/image'
+import { assetPath } from './../../../../../lib/asset-path'
 import { memo, useState } from 'react'
 import useEditor from '../../../../../store/use-editor'
 import { InlineRenameInput } from './inline-rename-input'
@@ -43,7 +44,7 @@ export const FenceTreeNode = memo(function FenceTreeNode({
       expanded={false}
       hasChildren={false}
       icon={
-        <Image alt="" className="object-contain" height={14} src="/icons/fence.png" width={14} />
+        <Image alt="" className="object-contain" height={14} src={assetPath('/icons/fence.png')} width={14} />
       }
       isHovered={isHovered}
       isLast={isLast}

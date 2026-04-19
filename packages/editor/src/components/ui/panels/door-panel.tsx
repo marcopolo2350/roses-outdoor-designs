@@ -22,6 +22,7 @@ import { SegmentedControl } from '../controls/segmented-control'
 import { SliderControl } from '../controls/slider-control'
 import { ToggleControl } from '../controls/toggle-control'
 import { PanelWrapper } from './panel-wrapper'
+import { assetPath } from '../../../lib/asset-path'
 import { PresetsPopover } from './presets/presets-popover'
 
 export function DoorPanel() {
@@ -189,7 +190,7 @@ export function DoorPanel() {
 
   return (
     <PanelWrapper
-      icon="/icons/door.png"
+      icon={assetPath('/icons/door.png')}
       onClose={handleClose}
       title={node.name || 'Door'}
       width={320}

@@ -11,6 +11,7 @@ import { MaterialPicker } from '../controls/material-picker'
 import { PanelSection } from '../controls/panel-section'
 import { SliderControl } from '../controls/slider-control'
 import { PanelWrapper } from './panel-wrapper'
+import { assetPath } from '../../../lib/asset-path'
 
 export function SlabPanel() {
   const selectedId = useViewer((s) => s.selection.selectedIds[0])
@@ -148,7 +149,7 @@ export function SlabPanel() {
 
   return (
     <PanelWrapper
-      icon="/icons/floor.png"
+      icon={assetPath('/icons/floor.png')}
       onClose={handleClose}
       title={node.name || 'Slab'}
       width={320}

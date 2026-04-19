@@ -3,6 +3,7 @@
 import { type AnyNodeId, useScene } from '@pascal-app/core'
 import { useViewer } from '@pascal-app/viewer'
 import Image from 'next/image'
+import { assetPath } from './../../../../../lib/asset-path'
 import { memo, useCallback, useState } from 'react'
 import useEditor from './../../../../../store/use-editor'
 import { InlineRenameInput } from './inline-rename-input'
@@ -53,7 +54,7 @@ export const DoorTreeNode = memo(function DoorTreeNode({
       expanded={false}
       hasChildren={false}
       icon={
-        <Image alt="" className="object-contain" height={14} src="/icons/door.png" width={14} />
+        <Image alt="" className="object-contain" height={14} src={assetPath('/icons/door.png')} width={14} />
       }
       isHovered={isHovered}
       isLast={isLast}

@@ -2,6 +2,7 @@ import { type AnyNodeId, type RoofNode, type RoofSegmentNode, useScene } from '@
 import { useViewer } from '@pascal-app/viewer'
 import { AnimatePresence } from 'motion/react'
 import Image from 'next/image'
+import { assetPath } from './../../../../../lib/asset-path'
 import { memo, useCallback, useEffect, useState } from 'react'
 import { useShallow } from 'zustand/react/shallow'
 import useEditor from '../../../../../store/use-editor'
@@ -98,7 +99,7 @@ export const RoofTreeNode = memo(function RoofTreeNode({
         expanded={expanded}
         hasChildren={segments.length > 0}
         icon={
-          <Image alt="" className="object-contain" height={14} src="/icons/roof.png" width={14} />
+          <Image alt="" className="object-contain" height={14} src={assetPath('/icons/roof.png')} width={14} />
         }
         isDropTarget={isValidDropTarget && isDropTarget}
         isHovered={isHovered || isDropTarget}
@@ -204,7 +205,7 @@ function RoofSegmentTreeNode({
             alt=""
             className="object-contain opacity-60"
             height={14}
-            src="/icons/roof.png"
+            src={assetPath('/icons/roof.png')}
             width={14}
           />
         }

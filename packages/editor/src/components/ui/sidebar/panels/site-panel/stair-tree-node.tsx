@@ -2,6 +2,7 @@ import { type AnyNodeId, type StairNode, type StairSegmentNode, useScene } from 
 import { useViewer } from '@pascal-app/viewer'
 import { AnimatePresence } from 'motion/react'
 import Image from 'next/image'
+import { assetPath } from './../../../../../lib/asset-path'
 import { memo, useCallback, useEffect, useState } from 'react'
 import { useShallow } from 'zustand/react/shallow'
 import useEditor from '../../../../../store/use-editor'
@@ -98,7 +99,7 @@ export const StairTreeNode = memo(function StairTreeNode({
         expanded={expanded}
         hasChildren={segments.length > 0}
         icon={
-          <Image alt="" className="object-contain" height={14} src="/icons/stairs.png" width={14} />
+          <Image alt="" className="object-contain" height={14} src={assetPath('/icons/stairs.png')} width={14} />
         }
         isDropTarget={isValidDropTarget && isDropTarget}
         isHovered={isHovered || isDropTarget}
@@ -206,7 +207,7 @@ function StairSegmentTreeNode({
             alt=""
             className="object-contain opacity-60"
             height={14}
-            src="/icons/stairs.png"
+            src={assetPath('/icons/stairs.png')}
             width={14}
           />
         }

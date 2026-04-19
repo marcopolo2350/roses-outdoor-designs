@@ -30,6 +30,7 @@ import { SegmentedControl } from '../controls/segmented-control'
 import { SliderControl } from '../controls/slider-control'
 import { ToggleControl } from '../controls/toggle-control'
 import { PanelWrapper } from './panel-wrapper'
+import { assetPath } from '../../../lib/asset-path'
 
 const RAILING_MODE_OPTIONS: { label: string; value: StairRailingMode }[] = [
   { label: 'None', value: 'none' },
@@ -234,7 +235,7 @@ export function StairPanel() {
 
   return (
     <PanelWrapper
-      icon="/icons/stairs.png"
+      icon={assetPath('/icons/stairs.png')}
       onClose={handleClose}
       title={node.name || 'Staircase'}
       width={300}

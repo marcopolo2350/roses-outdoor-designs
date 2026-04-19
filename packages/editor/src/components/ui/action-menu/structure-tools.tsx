@@ -1,6 +1,7 @@
 'use client'
 
 import NextImage from 'next/image'
+import { assetPath } from '../../../lib/asset-path'
 import { useContextualTools } from '../../../hooks/use-contextual-tools'
 
 import { cn } from '../../../lib/utils'
@@ -19,17 +20,17 @@ export type ToolConfig = {
 }
 
 export const tools: ToolConfig[] = [
-  { id: 'wall', iconSrc: '/icons/wall.png', label: 'Wall' },
+  { id: 'wall', iconSrc: assetPath('/icons/wall.png'), label: 'Wall' },
   // { id: 'room', iconSrc: '/icons/room.png', label: 'Room' },
   // { id: 'custom-room', iconSrc: '/icons/custom-room.png', label: 'Custom Room' },
-  { id: 'slab', iconSrc: '/icons/floor.png', label: 'Slab' },
-  { id: 'ceiling', iconSrc: '/icons/ceiling.png', label: 'Ceiling' },
-  { id: 'roof', iconSrc: '/icons/roof.png', label: 'Gable Roof' },
-  { id: 'stair', iconSrc: '/icons/stairs.png', label: 'Stairs' },
-  { id: 'door', iconSrc: '/icons/door.png', label: 'Door' },
-  { id: 'window', iconSrc: '/icons/window.png', label: 'Window' },
-  { id: 'fence', iconSrc: '/icons/fence.png', label: 'Fence' },
-  { id: 'zone', iconSrc: '/icons/zone.png', label: 'Zone' },
+  { id: 'slab', iconSrc: assetPath('/icons/floor.png'), label: 'Slab' },
+  { id: 'ceiling', iconSrc: assetPath('/icons/ceiling.png'), label: 'Ceiling' },
+  { id: 'roof', iconSrc: assetPath('/icons/roof.png'), label: 'Gable Roof' },
+  { id: 'stair', iconSrc: assetPath('/icons/stairs.png'), label: 'Stairs' },
+  { id: 'door', iconSrc: assetPath('/icons/door.png'), label: 'Door' },
+  { id: 'window', iconSrc: assetPath('/icons/window.png'), label: 'Window' },
+  { id: 'fence', iconSrc: assetPath('/icons/fence.png'), label: 'Fence' },
+  { id: 'zone', iconSrc: assetPath('/icons/zone.png'), label: 'Zone' },
 ]
 
 export function StructureTools() {

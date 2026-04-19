@@ -21,6 +21,7 @@ import { PanelSection } from '../controls/panel-section'
 import { SegmentedControl } from '../controls/segmented-control'
 import { SliderControl } from '../controls/slider-control'
 import { PanelWrapper } from './panel-wrapper'
+import { assetPath } from '../../../lib/asset-path'
 
 const SEGMENT_TYPE_OPTIONS: { label: string; value: StairSegmentType }[] = [
   { label: 'Flight', value: 'stair' },
@@ -133,7 +134,7 @@ export function StairSegmentPanel() {
 
   return (
     <PanelWrapper
-      icon="/icons/stairs.png"
+      icon={assetPath('/icons/stairs.png')}
       onBack={handleBack}
       onClose={handleClose}
       title={node.name || 'Stair Segment'}

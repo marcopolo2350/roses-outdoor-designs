@@ -8,6 +8,7 @@ import { PanelSection } from '../controls/panel-section'
 import { SegmentedControl } from '../controls/segmented-control'
 import { SliderControl } from '../controls/slider-control'
 import { PanelWrapper } from './panel-wrapper'
+import { assetPath } from '../../../lib/asset-path'
 
 type FenceStyleValue = 'slat' | 'rail' | 'privacy'
 type FenceBaseStyleValue = 'grounded' | 'floating'
@@ -89,7 +90,7 @@ export function FencePanel() {
 
   return (
     <PanelWrapper
-      icon="/icons/build.png"
+      icon={assetPath('/icons/build.png')}
       onClose={handleClose}
       title={node.name || 'Fence'}
       width={300}

@@ -21,6 +21,7 @@ import { MaterialPicker } from '../controls/material-picker'
 import { PanelSection } from '../controls/panel-section'
 import { SliderControl } from '../controls/slider-control'
 import { PanelWrapper } from './panel-wrapper'
+import { assetPath } from '../../../lib/asset-path'
 
 export function RoofPanel() {
   const selectedId = useViewer((s) => s.selection.selectedIds[0])
@@ -151,7 +152,7 @@ export function RoofPanel() {
 
   return (
     <PanelWrapper
-      icon="/icons/roof.png"
+      icon={assetPath('/icons/roof.png')}
       onClose={handleClose}
       title={node.name || 'Roof'}
       width={300}

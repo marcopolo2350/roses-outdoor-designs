@@ -20,6 +20,7 @@ import { PanelSection } from '../controls/panel-section'
 import { SegmentedControl } from '../controls/segmented-control'
 import { SliderControl } from '../controls/slider-control'
 import { PanelWrapper } from './panel-wrapper'
+import { assetPath } from '../../../lib/asset-path'
 
 const ROOF_TYPE_OPTIONS: { label: string; value: RoofType }[] = [
   { label: 'Hip', value: 'hip' },
@@ -125,7 +126,7 @@ export function RoofSegmentPanel() {
 
   return (
     <PanelWrapper
-      icon="/icons/roof.png"
+      icon={assetPath('/icons/roof.png')}
       onBack={handleBack}
       onClose={handleClose}
       title={node.name || 'Roof Segment'}

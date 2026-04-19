@@ -1,6 +1,7 @@
 import { type AnyNodeId, useScene, type WallNode } from '@pascal-app/core'
 import { useViewer } from '@pascal-app/viewer'
 import Image from 'next/image'
+import { assetPath } from './../../../../../lib/asset-path'
 import { memo, useCallback, useEffect, useRef, useState } from 'react'
 import { useShallow } from 'zustand/react/shallow'
 import useEditor from './../../../../../store/use-editor'
@@ -79,7 +80,7 @@ export const WallTreeNode = memo(function WallTreeNode({
       expanded={expanded}
       hasChildren={children.length > 0}
       icon={
-        <Image alt="" className="object-contain" height={14} src="/icons/wall.png" width={14} />
+        <Image alt="" className="object-contain" height={14} src={assetPath('/icons/wall.png')} width={14} />
       }
       isHovered={isHovered}
       isLast={isLast}

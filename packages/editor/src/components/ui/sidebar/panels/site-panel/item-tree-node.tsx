@@ -3,19 +3,20 @@ import { useViewer } from '@pascal-app/viewer'
 import Image from 'next/image'
 import { memo, useCallback, useEffect, useState } from 'react'
 import { useShallow } from 'zustand/react/shallow'
+import { assetPath } from './../../../../../lib/asset-path'
 import useEditor from './../../../../../store/use-editor'
 import { InlineRenameInput } from './inline-rename-input'
 import { focusTreeNode, handleTreeSelection, TreeNode, TreeNodeWrapper } from './tree-node'
 import { TreeNodeActions } from './tree-node-actions'
 
 const CATEGORY_ICONS: Record<string, string> = {
-  door: '/icons/door.png',
-  window: '/icons/window.png',
-  furniture: '/icons/couch.png',
-  appliance: '/icons/appliance.png',
-  kitchen: '/icons/kitchen.png',
-  bathroom: '/icons/bathroom.png',
-  outdoor: '/icons/tree.png',
+  door: assetPath('/icons/door.png'),
+  window: assetPath('/icons/window.png'),
+  furniture: assetPath('/icons/couch.png'),
+  appliance: assetPath('/icons/appliance.png'),
+  kitchen: assetPath('/icons/kitchen.png'),
+  bathroom: assetPath('/icons/bathroom.png'),
+  outdoor: assetPath('/icons/tree.png'),
 }
 
 interface ItemTreeNodeProps {
@@ -83,7 +84,7 @@ export const ItemTreeNode = memo(function ItemTreeNode({
   const handleStartEditing = useCallback(() => setIsEditing(true), [])
   const handleStopEditing = useCallback(() => setIsEditing(false), [])
 
-  const iconSrc = CATEGORY_ICONS[asset?.category ?? ''] || '/icons/couch.png'
+  const iconSrc = CATEGORY_ICONS[asset?.category ?? ''] || assetPath('/icons/couch.png')
   const defaultName = asset?.name || 'Item'
   const hasChildren = children.length > 0
 

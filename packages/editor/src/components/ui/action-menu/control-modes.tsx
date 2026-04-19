@@ -5,6 +5,7 @@ import { type LevelNode, useScene } from '@pascal-app/core'
 import { useViewer } from '@pascal-app/viewer'
 import { type LucideIcon, Trash2 } from 'lucide-react'
 import Image from 'next/image'
+import { assetPath } from './../../../lib/asset-path'
 import { cn } from './../../../lib/utils'
 import useEditor from './../../../store/use-editor'
 import { ActionButton } from './action-button'
@@ -26,7 +27,7 @@ type ControlConfig = {
 const controls: ControlConfig[] = [
   {
     id: 'select',
-    imageSrc: '/icons/select.png',
+    imageSrc: assetPath('/icons/select.png'),
     label: 'Select',
     shortcut: 'V',
     color: 'hover:bg-blue-500/20 hover:text-blue-400',
@@ -41,14 +42,14 @@ const controls: ControlConfig[] = [
   },
   {
     id: 'site-edit',
-    imageSrc: '/icons/site.png',
+    imageSrc: assetPath('/icons/site.png'),
     label: 'Edit site',
     color: 'hover:bg-white/5',
     activeColor: 'bg-white/10 hover:bg-white/10',
   },
   {
     id: 'build',
-    imageSrc: '/icons/build.png',
+    imageSrc: assetPath('/icons/build.png'),
     label: 'Build',
     shortcut: 'B',
     color: 'hover:bg-green-500/20 hover:text-green-400',
@@ -56,7 +57,7 @@ const controls: ControlConfig[] = [
   },
   {
     id: 'furnish',
-    imageSrc: '/icons/couch.png',
+    imageSrc: assetPath('/icons/couch.png'),
     label: 'Furnish',
     shortcut: 'F',
     color: 'hover:bg-green-500/20 hover:text-green-400',
@@ -64,7 +65,7 @@ const controls: ControlConfig[] = [
   },
   {
     id: 'zone',
-    imageSrc: '/icons/zone.png',
+    imageSrc: assetPath('/icons/zone.png'),
     label: 'Zone',
     shortcut: 'Z',
     color: 'hover:bg-green-500/20 hover:text-green-400',
