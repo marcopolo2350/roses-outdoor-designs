@@ -51,21 +51,21 @@ const DEFAULT_DIMENSIONS: [number, number, number] = [1, 1, 1]
 const edgeMaterial = new LineBasicNodeMaterial({
   color: 0xef_44_44, // red-500 (invalid)
   linewidth: 3,
-  depthTest: false,
+  depthTest: true,
   depthWrite: false,
 })
 
 const basePlaneMaterial = new MeshBasicNodeMaterial({
   color: 0xef_44_44, // red-500 (invalid)
   transparent: true,
-  depthTest: false,
+  depthTest: true,
   depthWrite: false,
 })
 
 // Create radial opacity: transparent in center, opaque at edges
 const center = vec2(0.5, 0.5)
 const dist = distance(uv(), center)
-const radialOpacity = smoothstep(0, 0.7, dist).mul(0.6)
+const radialOpacity = smoothstep(0.18, 0.78, dist).mul(0.38)
 basePlaneMaterial.opacityNode = radialOpacity
 
 export interface PlacementCoordinatorConfig {

@@ -46,7 +46,7 @@ export const CursorSphere = forwardRef<Group, CursorSphereProps>(function Cursor
           <circleGeometry args={[0.06, 32]} />
           <meshBasicMaterial
             color={color}
-            depthTest={false}
+            depthTest
             depthWrite={false}
             opacity={0.9}
             transparent
@@ -55,12 +55,12 @@ export const CursorSphere = forwardRef<Group, CursorSphereProps>(function Cursor
 
         {/* Outer ring / glow */}
         <mesh layers={EDITOR_LAYER} renderOrder={2}>
-          <circleGeometry args={[0.2, 32]} />
+          <circleGeometry args={[0.16, 32]} />
           <meshBasicMaterial
             color={color}
-            depthTest={false}
+            depthTest
             depthWrite={false}
-            opacity={0.25}
+            opacity={0.18}
             transparent
           />
         </mesh>
@@ -72,9 +72,9 @@ export const CursorSphere = forwardRef<Group, CursorSphereProps>(function Cursor
           <cylinderGeometry args={[0.01, 0.01, height, 8]} />
           <meshBasicMaterial
             color={color}
-            depthTest={false}
+            depthTest
             depthWrite={false}
-            opacity={0.7}
+            opacity={0.55}
             transparent
           />
         </mesh>

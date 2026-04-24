@@ -1,6 +1,12 @@
 'use client'
 
-import { type AnyNode, getScaledDimensions, ItemNode, useScene } from '@pascal-app/core'
+import {
+  type AnyNode,
+  getScaledDimensions,
+  ItemNode,
+  type MaterialSchema,
+  useScene,
+} from '@pascal-app/core'
 import { resolveCdnUrl } from '@pascal-app/viewer'
 import { useViewer } from '@pascal-app/viewer'
 import { Copy, Link, Link2Off, Move, Trash2 } from 'lucide-react'
@@ -10,6 +16,7 @@ import { assetPath } from '../../../lib/asset-path'
 import { cn } from '../../../lib/utils'
 import useEditor from '../../../store/use-editor'
 import { ActionButton, ActionGroup } from '../controls/action-button'
+import { MaterialPicker } from '../controls/material-picker'
 import { PanelSection } from '../controls/panel-section'
 import { SliderControl } from '../controls/slider-control'
 import { CollectionsPopover } from './collections/collections-popover'
@@ -76,6 +83,13 @@ export function ItemPanel() {
     deleteNode(selectedId as AnyNode['id'])
     setSelection({ selectedIds: [] })
   }, [selectedId, deleteNode, setSelection])
+
+  const handleMaterialChange = useCallback(
+    (material: MaterialSchema) => {
+      handleUpdate({ material })
+    },
+    [handleUpdate],
+  )
 
   if (!(node && node.type === 'item' && selectedId)) return null
 
@@ -274,6 +288,10 @@ export function ItemPanel() {
             )
           })()}
         </div>
+      </PanelSection>
+
+      <PanelSection title="Material">
+        <MaterialPicker onChange={handleMaterialChange} value={node.material} />
       </PanelSection>
 
       <PanelSection title="Collections">

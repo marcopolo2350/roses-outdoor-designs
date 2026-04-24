@@ -21,6 +21,7 @@ import { positionLocal, smoothstep, time } from 'three/tsl'
 import { MeshStandardNodeMaterial } from 'three/webgpu'
 import { useNodeEvents } from '../../../hooks/use-node-events'
 import { resolveCdnUrl } from '../../../lib/asset-url'
+import { applyMaterialOverrideToMaterials } from '../../../lib/materials'
 import { useItemLightPool } from '../../../store/use-item-light-pool'
 import { ErrorBoundary } from '../../error-boundary'
 import { NodeRenderer } from '../node-renderer'
@@ -156,6 +157,16 @@ const ModelRenderer = ({ node }: { node: ItemNode }) => {
     interactive?.effects.find((e): e is AnimationEffect => e.kind === 'animation') ?? null
   const lightEffects =
     interactive?.effects.filter((e): e is LightEffect => e.kind === 'light') ?? []
+
+  useEffect(() => {
+    if (!ref.current) return
+
+    ref.current.traverse((child) => {
+      if (!(child as Mesh).isMesh) return
+      const mesh = child as Mesh
+      applyMaterialOverrideToMaterials(mesh.material, node.material)
+    })
+  }, [node.material])
 
   return (
     <>

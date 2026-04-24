@@ -142,13 +142,13 @@ function GuidesControl() {
           size="icon"
           variant="ghost"
         >
-          <div className="relative">
+          <div className="flex items-center gap-1.5 px-1">
             <img
               alt="Guides"
-              className="h-[28px] w-[28px] object-contain"
+              className="h-[24px] w-[24px] object-contain"
               src={assetPath('/icons/floorplan.png')}
             />
-            <span className="absolute -right-1.5 -bottom-1 min-w-[14px] rounded-full bg-white/20 px-[3px] text-center font-medium text-[9px] text-white/70 leading-[14px]">
+            <span className="rounded-full border border-border/40 bg-white/10 px-1.5 py-0.5 text-center font-medium text-[9px] text-white/70 leading-none">
               {guides.length}
             </span>
           </div>
@@ -282,9 +282,9 @@ function ScansControl() {
           size="icon"
           variant="ghost"
         >
-          <div className="relative">
-            <img alt="Scans" className="h-[28px] w-[28px] object-contain" src={assetPath('/icons/mesh.png')} />
-            <span className="absolute -right-1.5 -bottom-1 min-w-[14px] rounded-full bg-white/20 px-[3px] text-center font-medium text-[9px] text-white/70 leading-[14px]">
+          <div className="flex items-center gap-1.5 px-1">
+            <img alt="Scans" className="h-[24px] w-[24px] object-contain" src={assetPath('/icons/mesh.png')} />
+            <span className="rounded-full border border-border/40 bg-white/10 px-1.5 py-0.5 text-center font-medium text-[9px] text-white/70 leading-none">
               {scans.length}
             </span>
           </div>

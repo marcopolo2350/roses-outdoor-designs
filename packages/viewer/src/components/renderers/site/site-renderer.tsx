@@ -131,9 +131,11 @@ export const SiteRenderer = ({ node }: { node: SiteNode }) => {
           <meshStandardMaterial
             color={bgColor}
             depthWrite={true}
+            metalness={0}
             polygonOffset={true}
             polygonOffsetFactor={1}
             polygonOffsetUnits={1}
+            roughness={1}
           />
         </mesh>
       )}

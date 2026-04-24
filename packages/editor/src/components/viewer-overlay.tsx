@@ -33,7 +33,7 @@ const levelModeLabels: Record<'stacked' | 'exploded' | 'solo', string> = {
   solo: 'Solo',
 }
 
-const levelModeBadgeLabels: Record<'manual' | 'stacked' | 'exploded' | 'solo', string> = {
+const levelModeButtonLabels: Record<'manual' | 'stacked' | 'exploded' | 'solo', string> = {
   manual: 'Stack',
   stacked: 'Stack',
   exploded: 'Exploded',
@@ -396,7 +396,7 @@ export const ViewerOverlay = ({
             {/* Level Mode */}
             <ActionButton
               className={cn(
-                'p-0',
+                'w-auto min-w-[88px] px-2',
                 levelMode === 'stacked' || levelMode === 'manual'
                   ? 'text-muted-foreground/80 hover:bg-white/5 hover:text-foreground'
                   : 'bg-white/10 text-foreground',
@@ -412,7 +412,7 @@ export const ViewerOverlay = ({
               tooltipSide="top"
               variant="ghost"
             >
-              <span className="relative flex h-full w-full items-center justify-center pb-1">
+              <span className="flex items-center gap-2">
                 {levelMode === 'solo' && <Diamond className="h-6 w-6" />}
                 {levelMode === 'exploded' && (
                   <Icon color="currentColor" height={24} icon="charm:stack-pop" width={24} />
@@ -422,9 +422,9 @@ export const ViewerOverlay = ({
                 )}
                 <span
                   aria-hidden="true"
-                  className="pointer-events-none absolute right-1 bottom-1 left-1 rounded border border-border/50 bg-background/70 px-0.5 py-[2px] text-center font-medium font-pixel text-[8px] text-foreground/85 leading-none tracking-[-0.02em] backdrop-blur-sm"
+                  className="truncate font-medium text-[11px] leading-none"
                 >
-                  {levelModeBadgeLabels[levelMode]}
+                  {levelModeButtonLabels[levelMode]}
                 </span>
               </span>
             </ActionButton>

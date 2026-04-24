@@ -1,6 +1,7 @@
 import type { NextConfig } from 'next'
 
 const isGitHubPages = process.env.GITHUB_PAGES === 'true'
+const isDev = process.env.NODE_ENV !== 'production'
 const repoName = process.env.GITHUB_REPOSITORY?.split('/')[1] ?? 'roses-outdoor-designs'
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH || (isGitHubPages ? `/${repoName}` : '')
 
@@ -28,6 +29,7 @@ const nextConfig: NextConfig = {
   },
   images: {
     unoptimized:
+      isDev ||
       isGitHubPages ||
       (process.env.NEXT_PUBLIC_ASSETS_CDN_URL?.startsWith('http://localhost') ?? false),
     remotePatterns: [

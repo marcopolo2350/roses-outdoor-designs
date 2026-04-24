@@ -236,6 +236,33 @@ export function applyMaterialPresetToMaterials(
   }
 }
 
+export function applyMaterialOverrideToMaterials(
+  materialInput: THREE.Material | THREE.Material[],
+  materialOverride?: MaterialSchema,
+) {
+  if (!materialOverride) return
+
+  const materials = (Array.isArray(materialInput) ? materialInput : [materialInput]).filter(
+    isStandardMaterial,
+  )
+
+  if (materials.length === 0) return
+
+  const props = resolveMaterial(materialOverride)
+  const texture = getTexture(materialOverride) ?? null
+
+  for (const material of materials) {
+    material.color.set(props.color)
+    material.roughness = props.roughness
+    material.metalness = props.metalness
+    material.opacity = props.opacity
+    material.transparent = props.transparent
+    material.side = sideMap[props.side]
+    material.map = texture
+    material.needsUpdate = true
+  }
+}
+
 export function createMaterialFromPreset(preset: MaterialPresetPayload): THREE.MeshStandardMaterial {
   const cacheKey = JSON.stringify(preset)
 

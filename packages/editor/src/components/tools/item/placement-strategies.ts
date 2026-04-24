@@ -30,6 +30,7 @@ import type {
 } from './placement-types'
 
 const DEFAULT_DIMENSIONS: [number, number, number] = [1, 1, 1]
+const SURFACE_FIT_TOLERANCE = 0.05
 
 // ============================================================================
 // FLOOR STRATEGY
@@ -433,7 +434,12 @@ export const itemSurfaceStrategy = {
       ? getScaledDimensions(ctx.draftItem)
       : (ctx.asset.dimensions ?? DEFAULT_DIMENSIONS)
     const surfDims = getScaledDimensions(surfaceItem)
-    if (ourDims[0] > surfDims[0] || ourDims[2] > surfDims[2]) return null
+    if (
+      ourDims[0] > surfDims[0] + SURFACE_FIT_TOLERANCE ||
+      ourDims[2] > surfDims[2] + SURFACE_FIT_TOLERANCE
+    ) {
+      return null
+    }
 
     const surfaceMesh = sceneRegistry.nodes.get(surfaceItem.id)
     if (!surfaceMesh) return null

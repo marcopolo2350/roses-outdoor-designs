@@ -2,6 +2,7 @@ import dedent from 'dedent'
 import { z } from 'zod'
 import { BaseNode, nodeType, objectId } from '../base'
 import type { CollectionId } from '../collections'
+import { MaterialSchema } from '../material'
 
 // --- Control descriptors ---
 
@@ -104,6 +105,7 @@ export const ItemNode = BaseNode.extend({
   position: z.tuple([z.number(), z.number(), z.number()]).default([0, 0, 0]),
   rotation: z.tuple([z.number(), z.number(), z.number()]).default([0, 0, 0]),
   scale: z.tuple([z.number(), z.number(), z.number()]).default([1, 1, 1]),
+  material: MaterialSchema.optional(),
   side: z.enum(['front', 'back']).optional(),
   children: z.array(objectId('item')).default([]),
 
