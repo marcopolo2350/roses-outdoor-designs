@@ -25,7 +25,7 @@ const TOOLBAR_CONTAINER =
 
 /** Ghost button inside a container — flush edges, no individual border/radius. */
 const TOOLBAR_BTN =
-  'flex items-center justify-center w-8 text-muted-foreground/80 transition-colors hover:bg-white/8 hover:text-foreground/90'
+  'flex w-8 items-center justify-center text-muted-foreground/80 transition-colors hover:bg-white/8 hover:text-foreground/90 focus-visible:z-10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/60'
 
 // ── View mode segmented control ─────────────────────────────────────────────
 
@@ -89,6 +89,7 @@ function CollapseSidebarButton() {
   return (
     <div className={TOOLBAR_CONTAINER}>
       <button
+        aria-label={isCollapsed ? 'Expand sidebar' : 'Collapse sidebar'}
         className={TOOLBAR_BTN}
         onClick={toggle}
         title={isCollapsed ? 'Expand sidebar' : 'Collapse sidebar'}
@@ -114,6 +115,7 @@ function WalkthroughButton() {
     <Tooltip>
       <TooltipTrigger asChild>
         <button
+          aria-label="Toggle Walkthrough Mode"
           className={cn(
             TOOLBAR_BTN,
             isFirstPersonMode && 'bg-emerald-500/15 text-emerald-400 hover:bg-emerald-500/20',
@@ -137,6 +139,7 @@ function UnitToggle() {
     <Tooltip>
       <TooltipTrigger asChild>
         <button
+          aria-label={`Switch units to ${unit === 'metric' ? 'imperial' : 'metric'}`}
           className={TOOLBAR_BTN}
           onClick={() => setUnit(unit === 'metric' ? 'imperial' : 'metric')}
           type="button"
@@ -159,6 +162,7 @@ function ThemeToggle() {
     <Tooltip>
       <TooltipTrigger asChild>
         <button
+          aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} theme`}
           className={cn(TOOLBAR_BTN, theme === 'dark' ? 'text-indigo-400/60' : 'text-amber-400/60')}
           onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
           type="button"
@@ -213,6 +217,7 @@ function LevelModeToggle() {
     <Tooltip>
       <TooltipTrigger asChild>
         <button
+          aria-label={`Set level view to ${levelModeLabels[levelMode] ?? 'Stack'}`}
           className={cn(
             TOOLBAR_BTN,
             'w-auto gap-1.5 px-2.5',
@@ -247,7 +252,11 @@ function GridSnapToggle() {
       <Tooltip>
         <TooltipTrigger asChild>
           <DropdownMenuTrigger asChild>
-            <button className={cn(TOOLBAR_BTN, 'w-auto gap-1.5 px-2.5')} type="button">
+            <button
+              aria-label="Open grid snap options"
+              className={cn(TOOLBAR_BTN, 'w-auto gap-1.5 px-2.5')}
+              type="button"
+            >
               <IconifyIcon height={14} icon="lucide:grid-2x2" width={14} />
               <span className="font-medium text-xs">{formatGridSnapStep(gridSnapStep)}</span>
             </button>
@@ -297,6 +306,7 @@ function WallModeToggle() {
     <Tooltip>
       <TooltipTrigger asChild>
         <button
+          aria-label={`Set wall view to ${config.label}`}
           className={cn(
             TOOLBAR_BTN,
             'w-auto gap-1.5 px-2.5',
@@ -326,6 +336,7 @@ function CameraModeToggle() {
     <Tooltip>
       <TooltipTrigger asChild>
         <button
+          aria-label={`Switch to ${cameraMode === 'perspective' ? 'orthographic' : 'perspective'} camera`}
           className={cn(
             TOOLBAR_BTN,
             cameraMode === 'orthographic' && 'bg-white/10 text-foreground/90',
@@ -354,6 +365,7 @@ function PreviewButton() {
     <Tooltip>
       <TooltipTrigger asChild>
         <button
+          aria-label="Open Preview Mode"
           className="flex items-center gap-1.5 px-2.5 font-medium text-muted-foreground/80 text-xs transition-colors hover:bg-white/8 hover:text-foreground/90"
           onClick={() => useEditor.getState().setPreviewMode(true)}
           type="button"

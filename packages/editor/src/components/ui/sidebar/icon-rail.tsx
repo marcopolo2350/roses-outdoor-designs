@@ -62,6 +62,7 @@ export function IconRail({
           <Tooltip key={panel.id}>
             <TooltipTrigger asChild>
               <button
+                aria-label={panel.label}
                 className={cn(
                   'flex h-9 w-9 items-center justify-center rounded-lg transition-all',
                   isActive ? 'bg-accent' : 'hover:bg-accent',
@@ -91,6 +92,7 @@ export function IconRail({
           <Tooltip key={panel.id}>
             <TooltipTrigger asChild>
               <button
+                aria-label={panel.label}
                 className={cn(
                   'flex h-9 w-9 items-center justify-center rounded-lg transition-all',
                   isActive ? 'bg-accent' : 'hover:bg-accent',
@@ -120,6 +122,7 @@ export function IconRail({
           <Tooltip key={panel.id}>
             <TooltipTrigger asChild>
               <button
+                aria-label={panel.label}
                 className={cn(
                   'flex h-9 w-9 items-center justify-center rounded-lg transition-all',
                   isActive ? 'bg-accent' : 'hover:bg-accent',

@@ -24,8 +24,13 @@ export const ActionButton = React.forwardRef<HTMLButtonElement, ActionButtonProp
       <Tooltip>
         <TooltipTrigger asChild>
           <Button
-            className={cn('relative h-11 w-11 transition-all', className)}
+            aria-label={label}
+            className={cn(
+              'relative h-11 w-11 transition-[background-color,color,opacity,transform,box-shadow]',
+              className,
+            )}
             ref={ref}
+            title={label}
             {...props}
           >
             <div

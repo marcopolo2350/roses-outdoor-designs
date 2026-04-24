@@ -180,6 +180,7 @@ export function ItemCatalog({ category }: { category: CatalogCategory }) {
             <Tooltip key={index}>
               <TooltipTrigger asChild>
                 <button
+                  aria-label={`Select ${item.name}`}
                   className={cn(
                     'relative aspect-square h-14 min-h-14 w-14 min-w-14 shrink-0 flex-col gap-px rounded-lg transition-all duration-200 ease-out hover:scale-105 hover:cursor-pointer',
                     isSelected && 'ring-2 ring-primary-foreground',
@@ -191,7 +192,7 @@ export function ItemCatalog({ category }: { category: CatalogCategory }) {
                     alt={item.name}
                     className="rounded-lg object-cover"
                     fill
-                    loading="eager"
+                    loading={index < 8 ? 'eager' : 'lazy'}
                     sizes="56px"
                     src={resolveCdnUrl(item.thumbnail) || ''}
                   />

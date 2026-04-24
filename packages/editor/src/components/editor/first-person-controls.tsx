@@ -200,6 +200,7 @@ export const FirstPersonOverlay = ({ onExit }: { onExit: () => void }) => {
       {/* Exit button — top-right */}
       <div className="fixed top-4 right-4 z-50">
         <button
+          aria-label="Exit Street View"
           className="pointer-events-auto flex items-center gap-2 rounded-xl border border-border/40 bg-background/90 px-4 py-2 font-medium text-foreground text-sm shadow-lg backdrop-blur-xl transition-colors hover:bg-background"
           onClick={handleExit}
           type="button"

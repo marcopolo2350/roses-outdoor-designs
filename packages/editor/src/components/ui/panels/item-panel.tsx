@@ -95,7 +95,7 @@ export function ItemPanel() {
 
   return (
     <PanelWrapper
-      icon={resolveCdnUrl(node.asset.thumbnail) || assetPath('/icons/furniture.png')}
+      icon={resolveCdnUrl(node.asset.thumbnail) || assetPath('/icons/couch.png')}
       onClose={handleClose}
       title={node.name || node.asset.name}
       width={300}

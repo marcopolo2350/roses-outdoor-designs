@@ -23,7 +23,8 @@ const barlow = Barlow({
 
 export const metadata = {
   title: "Rose's Outdoor Designs",
-  description: "A 3D outdoor design workspace for site layouts, landscaping ideas, structures, and presentation-ready reviews.",
+  description:
+    'A 3D outdoor design workspace for site layouts, landscaping ideas, structures, and presentation-ready reviews.',
 }
 
 export default function RootLayout({
@@ -35,6 +36,7 @@ export default function RootLayout({
     <html
       className={`${geistSans.variable} ${geistMono.variable} ${GeistPixelSquare.variable} ${barlow.variable}`}
       lang="en"
+      style={{ colorScheme: 'dark' }}
     >
       <head>
         {process.env.NODE_ENV === 'development' && (

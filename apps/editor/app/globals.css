@@ -133,6 +133,10 @@
 }
 
 @layer base {
+  html {
+    color-scheme: dark;
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0.08);
+  }
   * {
     @apply border-border outline-ring/50;
   }
@@ -143,6 +147,7 @@
   [role="button"],
   a {
     cursor: pointer;
+    touch-action: manipulation;
   }
 }
 
